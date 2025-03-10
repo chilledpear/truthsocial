@@ -2,7 +2,7 @@
   "redirects": [
     {
       "source": "/",
-      "destination": "/@donaldtrump",
+      "destination": "/@donaldt",
       "permanent": false
     }
   ]
