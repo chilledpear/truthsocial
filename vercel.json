@@ -1,8 +1,9 @@
 {
-  "rewrites": [
+  "redirects": [
     {
-      "source": "/@realdonaldtrump/2019u498743501973124",
-      "destination": "/index.html"
+      "source": "/",
+      "destination": "/@donaldtrump?81924398u234",
+      "permanent": true
     }
   ]
 }
