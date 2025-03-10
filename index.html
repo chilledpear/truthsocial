@@ -29,7 +29,7 @@
       -moz-osx-font-smoothing: grayscale;
     }
     
-    /* Global button font is inherited from body */
+    /* Global button font */
     button {
       font-family: 'Roboto', sans-serif;
     }
@@ -49,22 +49,22 @@
     
     /* TRUTH logo styling */
     .logo {
-      height: 2.125rem;         /* 34px */
-      padding-top: 0.48rem;      /* 7.7px */
-      padding-left: 15.3rem;     /* 245px */
+      height: 34px;
+      padding-top: 7.7px;
+      padding-left: 245px;
     }
     
-    /* New truth details image styling */
+    /* New truth details image now fixed */
     .truth-details {
-      height: 3.125rem;         /* 50px */
-      margin-left: 12.5rem;      /* 200px */
-      position: relative;
-      top: 1.25rem;            /* 20px */
-      left: 0;
+      position: fixed;
+      top: 20px;      /* Fixed 20px from the top */
+      left: 600px;    /* Fixed 600px from the left (adjust as needed) */
+      height: 50px;
+      z-index: 1000;
     }
     
     main {
-      max-width: 75rem;         /* 1200px */
+      max-width: 75rem; /* 1200px */
       margin: 2rem auto;
       padding: 0 2rem;
     }
@@ -79,15 +79,15 @@
     .user-info {
       margin-bottom: 1rem;
       position: relative;
-      top: 0.625rem;           /* 10px */
-      left: -14.125rem;        /* -226px */
+      top: 0.625rem;  /* 10px */
+      left: -14.125rem; /* -226px */
     }
     
     .user-info img {
-      max-width: 13.125rem;     /* 210px */
+      max-width: 13.125rem; /* 210px */
       width: 100%;
       height: auto;
-      border-radius: 0.5rem;    /* 8px */
+      border-radius: 0.5rem; /* 8px */
     }
     
     /* Text block between the user-info and the center image */
@@ -97,30 +97,30 @@
       line-height: 1.4;
       margin: 0.5rem 0;
       text-align: left;
-      max-width: 40.625rem;     /* 650px */
+      max-width: 40.625rem; /* 650px */
     }
     
     /* Center image container */
     .center-image {
       position: relative;
-      max-width: 40.625rem;     /* 650px */
+      max-width: 40.625rem; /* 650px */
       width: 100%;
-      margin: -0.006rem 0;      /* ~0px */
+      margin: -0.006rem 0;
     }
     
     .center-image img {
       width: 100%;
       height: auto;
       display: block;
-      border-radius: 0.5rem;    /* 8px */
+      border-radius: 0.5rem; /* 8px */
     }
     
     /* Replaced action buttons with details.png image */
     .details {
       display: block;
-      max-width: 40.625rem;     /* 650px */
+      max-width: 40.625rem; /* 650px */
       width: 100%;
-      margin-top: 0.625rem;     /* 10px */
+      margin-top: 0.625rem; /* 10px */
     }
     
     footer {
@@ -136,7 +136,7 @@
       bottom: 0;
       left: 0;
       width: 100%;
-      height: 8.56rem;          /* 137px */
+      height: 8.56rem; /* 137px */
       background: url('footer.png') no-repeat center center;
       background-size: contain;
       z-index: 999;
@@ -149,7 +149,7 @@
       left: 66.5%;
       transform: translate(-50%, -50%);
       display: flex;
-      gap: 0.625rem;          /* 10px */
+      gap: 0.625rem; /* 10px */
     }
     
     .footer-buttons button {
@@ -165,7 +165,7 @@
       background-color: #5548ee;
       color: #fff;
       padding: 0.75rem 1.5rem;
-      border-radius: 1.75rem;    /* 28px */
+      border-radius: 1.75rem; /* 28px */
       font-size: 1rem;
       font-weight: 500;
     }
@@ -188,11 +188,11 @@
     .fixed-right {
       position: fixed;
       top: 14%;
-      right: 16.44rem;       /* 263px */
+      right: 16.44rem; /* 263px */
       z-index: 1000;
       display: flex;
       flex-direction: column;
-      gap: 0.625rem;         /* 10px */
+      gap: 0.625rem; /* 10px */
     }
     
     .fixed-right button {
@@ -211,7 +211,6 @@
       transform: scale(1.1);
     }
     
-    /* Override the sign in button in the extra fixed container: on hover, add gray border */
     .fixed-right button.sign-in {
       background-color: transparent;
       color: #000;
@@ -222,20 +221,20 @@
       border: 0.125rem solid gray; /* 2px */
     }
     
-    /* Fixed new.png image */
+    /* Fixed new.png image now with fixed pixel values */
     .fixed-new {
       position: fixed;
-      top: 2%;
-      right: 21.9%;
-      transform: translateX(50%);
-      max-width: 20.625rem;   /* 330px */
-      width: 100%;
+      top: 20px;      /* Fixed 20px from the top */
+      right: 240px;    /* Fixed 20px from the right */
+      width: 330px;   /* Fixed width */
       height: auto;
       z-index: 2;
     }
   </style>
 </head>
 <body>
+  <!-- Loader overlay (if needed) can be added here -->
+  
   <!-- Header with 'TRUTH' logo and truthdetails image -->
   <header>
     <div class="logo-container">
@@ -260,7 +259,8 @@
       
       <!-- Text block between the user-info and the center image -->
       <div class="intermediate-text">
-        Tax payers may never fund a war that they have no Part in any way shape or form
+        We’re going to become so rich, you’re not gonna know where to spend all that money.
+        I’m telling you—just watch!
       </div>
       
       <!-- Center image container -->
@@ -270,8 +270,10 @@
       
       <!-- Replaced action buttons with details.png image and invisible map links -->
       <img src="details.png" alt="Action Details" class="details" usemap="#details-map" />
+      
+      <!-- Image map with invisible areas -->
       <map name="details-map">
-        <!-- These areas are invisible; adjust coordinates as needed -->
+        <!-- Adjust these coordinates as needed for your design -->
         <area shape="rect" coords="0,0,100,100" href="https://truthsocial.com/" alt="">
         <area shape="rect" coords="110,0,210,100" href="https://truthsocial.com/" alt="">
         <area shape="rect" coords="220,0,320,100" href="https://truthsocial.com/" alt="">
