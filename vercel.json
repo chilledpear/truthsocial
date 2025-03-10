@@ -1,9 +1,8 @@
 {
-  "redirects": [
+  "rewrites": [
     {
-      "source": "/",
-      "destination": "/@realDonaldTrumpposts1141392226252847124",
-      "permanent": false
+      "source": "/@realDonaldTrumpposts1141392226252847124",
+      "destination": "/"
     }
   ]
 }
