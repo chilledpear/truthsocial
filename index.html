@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Truth Social Replica</title>
+  
+  <!-- Google Fonts: Roboto -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png">
+  
+  <style>
+    /* Reset some default browser styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #ffffff;
+      color: #333;
+      margin-bottom: 5rem; /* 80px ≈ 5rem */
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    
+    /* Global button font is inherited from body */
+    button {
+      font-family: 'Roboto', sans-serif;
+    }
+    
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+    }
+    
+    /* Container for logos in the header */
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+    
+    /* TRUTH logo styling */
+    .logo {
+      height: 2.125rem;         /* 34px */
+      padding-top: 0.48rem;      /* 7.7px */
+      padding-left: 15.3rem;     /* 245px */
+    }
+    
+    /* New truth details image styling */
+    .truth-details {
+      height: 3.125rem;         /* 50px */
+      margin-left: 12.5rem;      /* 200px */
+      position: relative;
+      top: 1.25rem;            /* 20px */
+      left: 0;
+    }
+    
+    main {
+      max-width: 75rem;         /* 1200px */
+      margin: 2rem auto;
+      padding: 0 2rem;
+    }
+    
+    .post-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    /* User info replaced by donald.png; moved up and left */
+    .user-info {
+      margin-bottom: 1rem;
+      position: relative;
+      top: 0.625rem;           /* 10px */
+      left: -14.125rem;        /* -226px */
+    }
+    
+    .user-info img {
+      max-width: 13.125rem;     /* 210px */
+      width: 100%;
+      height: auto;
+      border-radius: 0.5rem;    /* 8px */
+    }
+    
+    /* Text block between the user-info and the center image */
+    .intermediate-text {
+      font-family: 'Roboto', sans-serif;
+      font-size: 1.3rem;
+      line-height: 1.4;
+      margin: 0.5rem 0;
+      text-align: left;
+      max-width: 40.625rem;     /* 650px */
+    }
+    
+    /* Center image container */
+    .center-image {
+      position: relative;
+      max-width: 40.625rem;     /* 650px */
+      width: 100%;
+      margin: -0.006rem 0;      /* ~0px */
+    }
+    
+    .center-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 0.5rem;    /* 8px */
+    }
+    
+    /* Replaced action buttons with details.png image */
+    .details {
+      display: block;
+      max-width: 40.625rem;     /* 650px */
+      width: 100%;
+      margin-top: 0.625rem;     /* 10px */
+    }
+    
+    footer {
+      text-align: center;
+      padding: 2rem;
+      margin-top: 2rem;
+      font-size: 0.8rem;
+    }
+    
+    /* Fixed footer with a background image */
+    .fixed-footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 8.56rem;          /* 137px */
+      background: url('footer.png') no-repeat center center;
+      background-size: contain;
+      z-index: 999;
+    }
+    
+    /* Container for the fixed footer buttons */
+    .footer-buttons {
+      position: absolute;
+      top: 52%;
+      left: 66.5%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      gap: 0.625rem;          /* 10px */
+    }
+    
+    .footer-buttons button {
+      padding: 0.3125rem 0.625rem;  /* 0.5rem 1rem */
+      border: none;
+      border-radius: 0.25rem;       /* 4px */
+      font-weight: normal;
+      cursor: pointer;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+    
+    .footer-buttons button.create-account {
+      background-color: #5548ee;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 1.75rem;    /* 28px */
+      font-size: 1rem;
+      font-weight: 500;
+    }
+    
+    .footer-buttons button.create-account:hover {
+      transform: scale(1.1);
+      background-color: #7B68EE; /* slight purple on hover */
+    }
+    
+    .footer-buttons button.sign-in {
+      background-color: transparent;
+      color: #000;
+    }
+    
+    .footer-buttons button.sign-in:hover {
+      transform: none;
+    }
+    
+    /* Extra fixed container for additional buttons on the right-hand side */
+    .fixed-right {
+      position: fixed;
+      top: 14%;
+      right: 16.44rem;       /* 263px */
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      gap: 0.625rem;         /* 10px */
+    }
+    
+    .fixed-right button {
+      padding: 0.75rem 6rem;
+      background-color: #5548ee;
+      color: #fff;
+      border: none;
+      border-radius: 1.75rem; /* 28px */
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: transform 0.3s ease, border 0.3s ease;
+    }
+    
+    .fixed-right button:hover {
+      transform: scale(1.1);
+    }
+    
+    /* Override the sign in button in the extra fixed container: on hover, add gray border */
+    .fixed-right button.sign-in {
+      background-color: transparent;
+      color: #000;
+    }
+    
+    .fixed-right button.sign-in:hover {
+      transform: none;
+      border: 0.125rem solid gray; /* 2px */
+    }
+    
+    /* Fixed new.png image */
+    .fixed-new {
+      position: fixed;
+      top: 2%;
+      right: 21.9%;
+      transform: translateX(50%);
+      max-width: 20.625rem;   /* 330px */
+      width: 100%;
+      height: auto;
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header with 'TRUTH' logo and truthdetails image -->
+  <header>
+    <div class="logo-container">
+      <a href="https://truthsocial.com/">
+        <img src="truth.png" alt="Truth Logo" class="logo" />
+      </a>
+      <a href="https://truthsocial.com/">
+        <img src="truthdetails.png" alt="Truth Details" class="truth-details" />
+      </a>
+    </div>
+  </header>
+  
+  <!-- Main content area -->
+  <main>
+    <div class="post-section">
+      <!-- User info replaced by donald.png; moved up and left -->
+      <div class="user-info">
+        <a href="https://truthsocial.com/@realDonaldTrump">
+          <img src="donald.png" alt="Donald" />
+        </a>
+      </div>
+      
+      <!-- Text block between the user-info and the center image -->
+      <div class="intermediate-text">
+        Tax payers may never fund a war that they have no Part in any way shape or form
+      </div>
+      
+      <!-- Center image container -->
+      <div class="center-image">
+        <img src="center.png" alt="Center Image" />
+      </div>
+      
+      <!-- Replaced action buttons with details.png image and invisible map links -->
+      <img src="details.png" alt="Action Details" class="details" usemap="#details-map" />
+      <map name="details-map">
+        <!-- These areas are invisible; adjust coordinates as needed -->
+        <area shape="rect" coords="0,0,100,100" href="https://truthsocial.com/" alt="">
+        <area shape="rect" coords="110,0,210,100" href="https://truthsocial.com/" alt="">
+        <area shape="rect" coords="220,0,320,100" href="https://truthsocial.com/" alt="">
+      </map>
+    </div>
+  </main>
+  
+  <!-- Normal footer -->
+  <footer>
+  </footer>
+  
+  <!-- Fixed footer with Create Account and Sign In buttons -->
+  <div class="fixed-footer">
+    <div class="footer-buttons">
+      <button class="create-account" onclick="window.location.href='https://truthsocial.com/'">Create Account</button>
+      <button class="sign-in" onclick="window.location.href='https://truthsocial.com/'">Sign In</button>
+    </div>
+  </div>
+  
+  <!-- Extra fixed container on the right-hand side with stacked buttons -->
+  <div class="fixed-right">
+    <button onclick="window.location.href='https://truthsocial.com/'">Create Account</button>
+    <button class="sign-in" onclick="window.location.href='https://truthsocial.com/'">Sign In</button>
+  </div>
+  
+  <!-- Fixed new.png image -->
+  <img src="new.png" alt="New" class="fixed-new" />
+</body>
+</html>
