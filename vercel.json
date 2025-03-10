@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/@realdonaldtrump/2019u498743501973124",
+      "destination": "/index.html"
+    }
+  ]
+}
