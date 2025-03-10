@@ -3,7 +3,7 @@
     {
       "source": "/",
       "destination": "/@donaldtrump?81924398u234",
-      "permanent": true
+      "permanent": false
     }
   ]
 }
