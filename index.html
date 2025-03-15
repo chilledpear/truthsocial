@@ -39,6 +39,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 1rem 2rem;
+      position: relative; /* Added to contain the fixed elements */
     }
     
     /* Container for logos in the header */
@@ -60,13 +61,15 @@
       top: 20px;      /* Fixed 20px from the top */
       left: 600px;    /* Fixed 600px from the left (adjust as needed) */
       height: 50px;
-      z-index: 1000;
+      z-index: 10; /* Lower than new.png but still above content */
     }
     
     main {
       max-width: 75rem; /* 1200px */
       margin: 2rem auto;
       padding: 0 2rem;
+      position: relative; /* Important for stacking context */
+      z-index: 1; /* Ensure main content is below fixed elements */
     }
     
     .post-section {
@@ -100,6 +103,23 @@
       max-width: 40.625rem; /* 650px */
     }
     
+    /* Added center image styling - MODIFIED to reduce bottom margin */
+    .added-center-image {
+      max-width: 40.625rem; /* 650px - matches other elements */
+      width: 100%;
+      margin: 1rem auto 0.25rem auto; /* Reduced bottom margin from 1rem to 0.25rem */
+      display: flex;
+      justify-content: center; /* Centers the image horizontally */
+      position: relative; /* Added for stacking context */
+    }
+
+    .added-center-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 0.5rem; /* 8px - matches other images */
+    }
+    
     /* Center image container */
     .center-image {
       position: relative;
@@ -115,12 +135,12 @@
       border-radius: 0.5rem; /* 8px */
     }
     
-    /* Replaced action buttons with details.png image */
+    /* Replaced action buttons with details.png image - MODIFIED to reduce top margin */
     .details {
       display: block;
       max-width: 40.625rem; /* 650px */
       width: 100%;
-      margin-top: 0.625rem; /* 10px */
+      margin-top: 0.25rem; /* Reduced from 0.625rem (10px) to 0.25rem (4px) */
     }
     
     footer {
@@ -195,8 +215,6 @@
       gap: 0.625rem; /* 10px */
     }
     
-
-    
     .fixed-right button:hover {
       transform: scale(1.1);
     }
@@ -211,31 +229,74 @@
       border: 0.125rem solid gray; /* 2px */
     }
     
-    /* Fixed new.png image now with fixed pixel values */
+    /* Fixed new.png image - MODIFIED to be more responsive */
     .fixed-new {
       position: fixed;
-      top: 20px;      /* Fixed 20px from the top */
-      right: 240px;    /* Fixed 20px from the right */
-      width: 330px;   /* Fixed width */
+      top: 20px;
+      right: 240px;
+      width: 330px;
       height: auto;
-      z-index: 2;
+      z-index: 20; /* Higher z-index to ensure it stays on top */
+    }
+    
+    /* Add media queries to handle zooming and different screen sizes */
+    @media (max-width: 1200px) {
+      .fixed-new {
+        right: 10%; /* Use percentage instead of fixed pixels */
+        width: 25%; /* Responsive width */
+        max-width: 330px; /* But no larger than original */
+      }
+      
+      .truth-details {
+        left: 40%; /* More responsive positioning */
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .fixed-new {
+        position: absolute; /* Change to absolute for smaller screens */
+        top: 10px;
+        right: 10px;
+        width: 200px; /* Smaller on mobile */
+      }
+      
+      .truth-details {
+        position: absolute;
+        left: 30%;
+      }
+      
+      .logo {
+        padding-left: 10px;
+      }
+    }
+    
+    /* Add a container to separate the header UI from the content */
+    .header-container {
+      position: relative;
+      height: 80px; /* Give enough space for the header elements */
+      width: 100%;
+      margin-bottom: 2rem;
     }
   </style>
 </head>
 <body>
-  <!-- Loader overlay (if needed) can be added here -->
-  
-  <!-- Header with 'TRUTH' logo and truthdetails image -->
-  <header>
-    <div class="logo-container">
-      <a href="https://truthsocial.com/">
-        <img src="truth.png" alt="Truth Logo" class="logo" />
-      </a>
-      <a href="https://truthsocial.com/">
-        <img src="truthdetails.png" alt="Truth Details" class="truth-details" />
-      </a>
-    </div>
-  </header>
+  <!-- Add a container to manage header elements -->
+  <div class="header-container">
+    <!-- Header with 'TRUTH' logo and truthdetails image -->
+    <header>
+      <div class="logo-container">
+        <a href="https://truthsocial.com/">
+          <img src="truth.png" alt="Truth Logo" class="logo" />
+        </a>
+        <a href="https://truthsocial.com/">
+          <img src="truthdetails.png" alt="Truth Details" class="truth-details" />
+        </a>
+      </div>
+    </header>
+    
+    <!-- Fixed new.png image -->
+    <img src="new.png" alt="New" class="fixed-new" />
+  </div>
   
   <!-- Main content area -->
   <main>
@@ -249,10 +310,14 @@
       
       <!-- Text block between the user-info and the center image -->
       <div class="intermediate-text">
-        Believe me America, the impact of our crypto reserve is going to be huge, absolutely huge! Our market will surge back stronger than ever. I’ll be making a statement tonight that’s a big WIN. Make Crypto Great Again!
+        Believe me America, the impact of our crypto reserve is going to be huge, absolutely huge! Our market will surge back stronger than ever. I'll be making a statement tonight that's a big WIN. Make Crypto Great Again!
+      </div>
+      
+      <!-- New center image added between text and details -->
+      <div class="added-center-image">
+        <img src="center.png" alt="Center Image" />
       </div>
 
-      
       <!-- Replaced action buttons with details.png image and invisible map links -->
       <img src="details.png" alt="Action Details" class="details" usemap="#details-map" />
       
@@ -277,9 +342,5 @@
       <button class="sign-in" onclick="window.location.href='https://truthsocial.com/'">Sign In</button>
     </div>
   </div>
-
-  
-  <!-- Fixed new.png image -->
-  <img src="new.png" alt="New" class="fixed-new" />
 </body>
 </html>
